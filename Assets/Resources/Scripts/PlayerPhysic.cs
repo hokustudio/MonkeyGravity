@@ -7,7 +7,6 @@ public class PlayerPhysic : MonoBehaviour
 	private int fuelTank;
 	public int maxPlayerStrength = 3;
 	private int playerStrength;
-	
 	public float thrustMaxSpeed = 1800; //thrust force max default 1700 / mass 100 
 	private float revThrustMaxSpeed = -200;
 	private float thrustMinSpeed = 100;
@@ -15,12 +14,10 @@ public class PlayerPhysic : MonoBehaviour
 	private float thrustLeftAcceleration = 300;
 	private float thrustRightAcceleration = 100;
 	public float thrustCurrentSpeed = 0;
-
-	public float rotationSpeed=5; //rotation speed default 150
+	public float rotationSpeed = 5; //rotation speed default 150
 
 	public ParticleSystem thrustParticleEffect;
 	private Rigidbody2D rb;
-
 	private static PlayerPhysic singleton;
 
 	public static PlayerPhysic myInstance {
@@ -52,27 +49,33 @@ public class PlayerPhysic : MonoBehaviour
 		smooth.x = 36;
 
 		if (rb.velocity.y < 0) {
-			if(Mathf.Abs(rb.velocity.x) > 0) {
-				x = Mathf.Lerp(x/1.015f, rb.velocity.x, smooth.x * Time.deltaTime);
+			if (Mathf.Abs (rb.velocity.x) > 0) {
+				x = Mathf.Lerp (x / 1.015f, rb.velocity.x, smooth.x * Time.deltaTime);
 
-				rb.velocity = new Vector2(x, rb.velocity.y);
+				rb.velocity = new Vector2 (x, rb.velocity.y);
 			}
 		}
 		//Debug.Log (GetComponent<Rigidbody2D> ().velocity + " " + x);
 		thrustParticleEffect.Stop ();
 	}
 
-	public int GetFuel(){
+	public int GetFuel ()
+	{
 		return fuelTank;
 	}
-	public int GetMaxFuel(){
+
+	public int GetMaxFuel ()
+	{
 		return maxFuelTank;
 	}
 
-	public int GetStrength(){
+	public int GetStrength ()
+	{
 		return playerStrength;
 	}
-	public int GetMaxStrength(){
+
+	public int GetMaxStrength ()
+	{
 		return maxPlayerStrength;
 	}
 
@@ -107,14 +110,31 @@ public class PlayerPhysic : MonoBehaviour
 		transform.Rotate (transform.rotation.x, transform.rotation.y, transform.rotation.z + rotationSpeed);
 	}
 
-	public void StrenghtPlayerHandler ()
+	public void StrengthPlayerHandler ()
 	{
 		if (playerStrength >= 1) {
 			playerStrength--;
 		} else {
 			Debug.Log ("Animasi Meledak");
-			Application.LoadLevel(0);
+			Application.LoadLevel (0);
 		}
 
+	}
+
+	void OnCollisionEnter2D (Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Bounds") {
+			Application.LoadLevel (0);
+		}
+	}
+
+	public void FuelTank ()
+	{
+		fuelTank = maxFuelTank;
+	}
+
+	public void RepairStrength ()
+	{
+		playerStrength = maxPlayerStrength;
 	}
 }
