@@ -8,7 +8,7 @@ public class PlayScript : MonoBehaviour {
 
 	public void LoadScene(){
 		Debug.Log(222);
-		Application.LoadLevel(1);
+		//Application.LoadLevel(1);
 		Debug.Log(333);
 	}
 }

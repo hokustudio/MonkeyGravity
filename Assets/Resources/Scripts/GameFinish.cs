@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameFinnish : MonoBehaviour {
+public class GameFinish : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
