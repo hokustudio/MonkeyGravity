@@ -51,8 +51,9 @@
      <Compile Include="Assets\Resources\Scripts\DamageHandler.cs" />
      <Compile Include="Assets\Resources\Scripts\FuelBaseScript.cs" />
      <Compile Include="Assets\Resources\Scripts\FuelScript.cs" />
-     <Compile Include="Assets\Resources\Scripts\GameFinnish.cs" />
+     <Compile Include="Assets\Resources\Scripts\GameFinish.cs" />
      <Compile Include="Assets\Resources\Scripts\GoldManagerScript.cs" />
+     <Compile Include="Assets\Resources\Scripts\Menu\PlayScript.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerPhysic.cs" />
      <Compile Include="Assets\Resources\Scripts\RepairBaseScript.cs" />
