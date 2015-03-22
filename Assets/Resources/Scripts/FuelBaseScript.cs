@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameFinnish : MonoBehaviour {
+public class FuelBaseScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +13,7 @@ public class GameFinnish : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D(Collider2D x) {
-		Debug.Log("Finnish");
-		
+	void OnCollisionEnter2D(Collision2D collision) {		
+		PlayerPhysic.myInstance.FuelTank ();
 	}
 }
