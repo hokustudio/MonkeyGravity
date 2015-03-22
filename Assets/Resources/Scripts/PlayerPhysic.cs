@@ -107,7 +107,7 @@ public class PlayerPhysic : MonoBehaviour
 		transform.Rotate (transform.rotation.x, transform.rotation.y, transform.rotation.z + rotationSpeed);
 	}
 
-	public void StrenghtPlayerHandler ()
+	public void StrengthPlayerHandler ()
 	{
 		if (playerStrength >= 1) {
 			playerStrength--;
@@ -116,5 +116,13 @@ public class PlayerPhysic : MonoBehaviour
 			Application.LoadLevel(Application.loadedLevel);
 		}
 
+	}
+
+	public void FuelTank() {
+		fuelTank = maxFuelTank;
+	}
+
+	public void RepairStrength() {
+		playerStrength = maxPlayerStrength;
 	}
 }
