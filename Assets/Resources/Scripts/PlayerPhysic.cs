@@ -113,7 +113,7 @@ public class PlayerPhysic : MonoBehaviour
 			playerStrength--;
 		} else {
 			Debug.Log ("Animasi Meledak");
-			Application.LoadLevel(Application.loadedLevel);
+			Application.LoadLevel(0);
 		}
 
 	}
