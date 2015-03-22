@@ -1,9 +1,26 @@
 fileFormatVersion: 2
 guid: 9618de80dddfa844d8d3f371f1b37944
-timeCreated: 1426319216
+timeCreated: 1427014891
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: playerHead
+    21300002: playerRocketBack
+    21300004: playerRocketShine
+    21300006: playerBody
+    21300008: playerRocketThrust
+    21300010: playerPupil
+    21300012: playerEye
+    21300014: playerEyeAngry
+    21300016: playerRocketFront
+    21300018: playerMouthHappy
+    21300020: playerMouthSad
+    21300022: playerDefault
+    21300024: playerMouthAngry
+    21300026: playerEyeWonder
+    21300028: playerEyeSad
+    21300030: playerMouthU
+    21300032: playerMouthTeeth
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -48,7 +65,177 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: playerHead
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 295
+        width: 150
+        height: 130
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerRocketBack
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 165
+        width: 211
+        height: 238
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerRocketShine
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 336
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerBody
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 206
+        width: 91
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerRocketThrust
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 222
+        width: 204
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerPupil
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 183
+        width: 60
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEye
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 145
+        width: 82
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEyeAngry
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 114
+        width: 81
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerRocketFront
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 163
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerMouthHappy
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 71
+        width: 66
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerMouthSad
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 62
+        width: 40
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerDefault
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 47
+        width: 65
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerMouthAngry
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 31
+        width: 48
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEyeWonder
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 47
+        width: 83
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerEyeSad
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 3
+        width: 85
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerMouthU
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 19
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: playerMouthTeeth
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 60
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
