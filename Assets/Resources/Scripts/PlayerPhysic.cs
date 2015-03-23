@@ -7,16 +7,18 @@ public class PlayerPhysic : MonoBehaviour
 	private int fuelTank;
 	public int maxPlayerStrength = 3;
 	private int playerStrength;
+
 	public float thrustMaxSpeed = 1800; //thrust force max default 1700 / mass 100 
 	private float revThrustMaxSpeed = -200;
 	private float thrustMinSpeed = 100;
 	public float thrustAcceleration; //thrust
-	private float thrustLeftAcceleration = 300;
-	private float thrustRightAcceleration = 100;
-	public float thrustCurrentSpeed = 0;
-	public float rotationSpeed = 5; //rotation speed default 150
+	public float thrustCurrentSpeed;
+	public float rotationSpeed; //rotation speed default 150
 
 	public ParticleSystem thrustParticleEffect;
+	public GameObject explosion;
+
+
 	private Rigidbody2D rb;
 	private static PlayerPhysic singleton;
 
@@ -41,6 +43,7 @@ public class PlayerPhysic : MonoBehaviour
 	{
 		if (thrustCurrentSpeed > 0) {
 			thrustCurrentSpeed = thrustCurrentSpeed + revThrustMaxSpeed;
+
 		}
 
 		var x = rb.velocity.x;
@@ -84,8 +87,9 @@ public class PlayerPhysic : MonoBehaviour
 		if (thrustCurrentSpeed < thrustMaxSpeed) {
 			float newspeed = thrustCurrentSpeed + thrustAcceleration;
 			thrustCurrentSpeed = newspeed;
+			Debug.Log (newspeed);
 		}
-		//Debug.Log (fuelTank);
+
 		if (fuelTank > 0) {
 			rb.AddForce (transform.up * thrustCurrentSpeed);
 			thrustParticleEffect.Play ();
@@ -115,8 +119,11 @@ public class PlayerPhysic : MonoBehaviour
 		if (playerStrength >= 1) {
 			playerStrength--;
 		} else {
-			Debug.Log ("Animasi Meledak");
-			Application.LoadLevel (0);
+			//Debug.Log ("Animasi Meledak");
+			//Application.LoadLevel (0);
+			ExplodePlayer();
+
+			Destroy(gameObject);
 		}
 
 	}
@@ -136,5 +143,11 @@ public class PlayerPhysic : MonoBehaviour
 	public void RepairStrength ()
 	{
 		playerStrength = maxPlayerStrength;
+	}
+
+	public void ExplodePlayer()
+	{
+		Instantiate (explosion, transform.position, transform.rotation);
+
 	}
 }
