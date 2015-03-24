@@ -49,6 +49,7 @@
      <Compile Include="Assets\Resources\Scripts\BananaScript.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\DamageHandler.cs" />
+     <Compile Include="Assets\Resources\Scripts\ExplosionScript.cs" />
      <Compile Include="Assets\Resources\Scripts\FuelBaseScript.cs" />
      <Compile Include="Assets\Resources\Scripts\FuelScript.cs" />
      <Compile Include="Assets\Resources\Scripts\GameFinish.cs" />
