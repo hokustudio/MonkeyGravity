@@ -17,7 +17,7 @@ public class PlayerPhysic : MonoBehaviour
 
 	public ParticleSystem thrustParticleEffect;
 	public GameObject explosion;
-
+	public Animator Animator;
 
 	private Rigidbody2D rb;
 	private static PlayerPhysic singleton;
@@ -58,6 +58,8 @@ public class PlayerPhysic : MonoBehaviour
 				rb.velocity = new Vector2 (x, rb.velocity.y);
 			}
 		}
+
+		Animator.SetFloat ("Speed", thrustCurrentSpeed);
 		//Debug.Log (GetComponent<Rigidbody2D> ().velocity + " " + x);
 		thrustParticleEffect.Stop ();
 	}
