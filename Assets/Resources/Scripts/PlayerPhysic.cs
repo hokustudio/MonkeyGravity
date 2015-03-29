@@ -35,7 +35,6 @@ public class PlayerPhysic : MonoBehaviour
 		rb = GetComponent<Rigidbody2D> ();
 		fuelTank = maxFuelTank;
 		playerStrength = maxPlayerStrength;
-		//mRot = transform.rotation.eulerAngles; 
 	}
 
 	// Update is called once per frame
@@ -60,8 +59,8 @@ public class PlayerPhysic : MonoBehaviour
 		}
 
 		Animator.SetFloat ("Speed", thrustCurrentSpeed);
-		//Debug.Log (GetComponent<Rigidbody2D> ().velocity + " " + x);
-		//thrustParticleEffect.Stop ();
+
+		Debug.Log (Screen.width);
 	}
 
 	public int GetFuel ()
@@ -89,7 +88,6 @@ public class PlayerPhysic : MonoBehaviour
 		if (thrustCurrentSpeed < thrustMaxSpeed) {
 			float newspeed = thrustCurrentSpeed + thrustAcceleration;
 			thrustCurrentSpeed = newspeed;
-			Debug.Log (newspeed);
 		}
 
 		if (fuelTank > 0) {
@@ -121,11 +119,8 @@ public class PlayerPhysic : MonoBehaviour
 		if (playerStrength >= 1) {
 			playerStrength--;
 		} else {
-			//Debug.Log ("Animasi Meledak");
-			//Application.LoadLevel (0);
 			ExplodePlayer();
-
-			Destroy(gameObject);
+			transform.position = new Vector2 (transform.position.x,Screen.height);
 		}
 
 	}
@@ -133,7 +128,8 @@ public class PlayerPhysic : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Bounds") {
-			Application.LoadLevel (0);
+			ExplodePlayer();
+			transform.position = new Vector2 (transform.position.x,Screen.height);
 		}
 	}
 
@@ -150,6 +146,5 @@ public class PlayerPhysic : MonoBehaviour
 	public void ExplodePlayer()
 	{
 		Instantiate (explosion, transform.position, transform.rotation);
-
 	}
 }

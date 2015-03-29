@@ -20,8 +20,6 @@ public class DamageHandler : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D collision)
 	{
-		//Debug.Log ("ketabrak");
-
 		PlayerPhysic.myInstance.StrengthPlayerHandler ();
 	}
 }
