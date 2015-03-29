@@ -90,6 +90,7 @@ public class PlayerPhysic : MonoBehaviour
 			thrustCurrentSpeed = newspeed;
 		}
 
+		if(gameObject != null)
 		if (fuelTank > 0) {
 			rb.AddForce (transform.up * thrustCurrentSpeed);
 			thrustParticleEffect.Play ();
@@ -101,7 +102,8 @@ public class PlayerPhysic : MonoBehaviour
 
 	public void ThrustForceStop ()
 	{
-		thrustParticleEffect.Stop ();
+		if(thrustParticleEffect != null)
+			thrustParticleEffect.Stop ();
 	}
 
 	public void RotationRight ()
@@ -120,7 +122,10 @@ public class PlayerPhysic : MonoBehaviour
 			playerStrength--;
 		} else {
 			ExplodePlayer();
-			transform.position = new Vector2 (transform.position.x,Screen.height);
+
+			//transform.position = new Vector2 (transform.position.x,Screen.height);
+			//rb.isKinematic = true;
+			Destroy (gameObject);
 		}
 
 	}
@@ -129,7 +134,9 @@ public class PlayerPhysic : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Bounds") {
 			ExplodePlayer();
-			transform.position = new Vector2 (transform.position.x,Screen.height);
+			//transform.position = new Vector2 (transform.position.x,Screen.height);
+			//rb.isKinematic = true;
+			Destroy (gameObject);
 		}
 	}
 

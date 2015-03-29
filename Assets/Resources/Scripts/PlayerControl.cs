@@ -3,9 +3,11 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
 
+	public GameObject bgMusic;
+
 	// Use this for initialization
 	void Start () {
-
+		bgMusic.GetComponent<AudioSource>().Play ();
 	}
 	
 	// Update is called once per frame
