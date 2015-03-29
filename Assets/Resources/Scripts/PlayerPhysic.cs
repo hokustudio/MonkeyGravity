@@ -61,7 +61,7 @@ public class PlayerPhysic : MonoBehaviour
 
 		Animator.SetFloat ("Speed", thrustCurrentSpeed);
 		//Debug.Log (GetComponent<Rigidbody2D> ().velocity + " " + x);
-		thrustParticleEffect.Stop ();
+		//thrustParticleEffect.Stop ();
 	}
 
 	public int GetFuel ()
