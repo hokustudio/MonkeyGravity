@@ -2,13 +2,17 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class GameFinish : MonoBehaviour {
+public class GameFinish : MonoBehaviour
+{
 	public GameObject win;
 	public GameObject lose;
 	public GameObject input;
-	private int temp=0;
-	private int skor=0;
 	public Text text;
+	
+	private float temp = 0;
+	private float score = 0;
+	private float finishScore = 35000;
+	private float timeCounter = 10;
 
 	private static GameFinish singleton;
 	
@@ -18,50 +22,76 @@ public class GameFinish : MonoBehaviour {
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		singleton = this;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (temp < skor) {
-			temp+=5;
+
+	void Update ()
+	{
+		if (temp < score) {
+			temp += 300;
 		}
 		text.text = temp.ToString ();
+
+		//if(temp > 25000)
+		//	win.transform.GetChild (3).transform.GetChild (0).gameObject.SetActive (true);
+		//else if(temp > 55000)
+		//	win.transform.GetChild (3).transform.GetChild (1).gameObject.SetActive (true);
+		//else if(temp > 83000)
+		//	win.transform.GetChild (3).transform.GetChild (2).gameObject.SetActive (true);
+
+		timeCounter -= 1 * Time.deltaTime;
+		Debug.Log (temp);
 	}
 
-	void OnTriggerEnter2D(Collider2D x) {
-		Debug.Log("Finnish");
-		StartCoroutine (Win ());
+	public int TimeCounter() 
+	{
+		return (int)timeCounter;
 	}
-	IEnumerator Win()
+
+	public float FinishScore ()
+	{
+		return finishScore;
+	}
+
+	void OnTriggerEnter2D (Collider2D x)
+	{
+			Debug.Log ("Finnish");
+			StartCoroutine (Win ());
+	}
+
+	IEnumerator Win ()
 	{
 		//input.SetActive (false);
-		yield return new WaitForSeconds(3.0f);
-		win.transform.position = new Vector3 (0f,0f,0f);
-		int score = GoldManagerScript.myInstance.getCurrentGold ();
-		skor = score * 100;
-		yield return new WaitForSeconds(1.0f);
+		yield return new WaitForSeconds (2.0f);
+		win.transform.position = new Vector3 (0f, 0f, 0f);
+		float score = PlayerModels.PlayerInstance.GetBananaPlayer ();
+
+		score = CalculateScore.myInstance.ScorePlayer ();
+		Debug.Log (score);
+		yield return new WaitForSeconds (1.0f);
 		int i = 0;
 		bool p = true;
-		while (p){
-			win.transform.GetChild (3).transform.GetChild (i).gameObject.SetActive(true);
+		while (p) {
+			win.transform.GetChild (3).transform.GetChild (i).gameObject.SetActive (true);
 			i++;
 			score--;
-			if(score<1) p=false;
-			yield return new WaitForSeconds(1.0f);
+			if (score < 1)
+			p = false;
+			yield return new WaitForSeconds (1.0f);
 		}
 	}
 
-	public void Lose(){
-		StartCoroutine (Kalah ());
+	public void Lose ()
+	{
+		StartCoroutine (Losed ());
 	}
 	
-	IEnumerator Kalah()
+	IEnumerator Losed ()
 	{
 		//input.SetActive (false);
-		yield return new WaitForSeconds(1.0f);
-		lose.transform.position = new Vector3 (0f,0f,0f);
+		yield return new WaitForSeconds (1.0f);
+		lose.transform.position = new Vector3 (0f, 0f, 0f);
 	}
 }

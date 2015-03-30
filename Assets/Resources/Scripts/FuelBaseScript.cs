@@ -1,19 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FuelBaseScript : MonoBehaviour {
+public class FuelBaseScript : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	void OnCollisionEnter2D(Collision2D collision) {		
-		PlayerPhysic.myInstance.FuelTank ();
+	void OnCollisionEnter2D (Collision2D collision)
+	{		
+		PlayerModels.PlayerInstance.FuelTank ();
 	}
 }

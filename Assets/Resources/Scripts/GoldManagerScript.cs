@@ -2,35 +2,34 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GoldManagerScript : MonoBehaviour {
+public class GoldManagerScript : MonoBehaviour
+{
 
-	public static int gold;
+	public static float banana;
 	public Text skorText;
 	Text text;
 	private static GoldManagerScript singleton;
+
 	public static GoldManagerScript myInstance {
 		get {
 			return singleton;
 		}
 	}
 
-	public int getCurrentGold(){
-		return gold;
-	}
-	public void addGold(){
-		gold++;
-		//Debug.Log (gold);
-	} 
-
-	// Use this for initialization
-	void Start () {
-		gold = 0;
+	void Start ()
+	{
+		banana = PlayerModels.PlayerInstance.GetBananaPlayer ();
 		singleton = this;
 		skorText = skorText.GetComponent<Text> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		skorText.text =  gold.ToString();
+
+	void Update ()
+	{
+		skorText.text = banana.ToString ();
 	}
+	
+	public void AddBanana ()
+	{
+		PlayerModels.PlayerInstance.SetBananaPlayer (++banana);
+	} 
 }
