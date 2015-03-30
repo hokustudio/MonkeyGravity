@@ -59,8 +59,6 @@ public class PlayerPhysic : MonoBehaviour
 		}
 
 		Animator.SetFloat ("Speed", thrustCurrentSpeed);
-
-		Debug.Log (Screen.width);
 	}
 
 	public int GetFuel ()
@@ -125,6 +123,7 @@ public class PlayerPhysic : MonoBehaviour
 
 			//transform.position = new Vector2 (transform.position.x,Screen.height);
 			//rb.isKinematic = true;
+			GameFinish.myInstance.Lose();
 			Destroy (gameObject);
 		}
 
@@ -136,6 +135,7 @@ public class PlayerPhysic : MonoBehaviour
 			ExplodePlayer();
 			//transform.position = new Vector2 (transform.position.x,Screen.height);
 			//rb.isKinematic = true;
+			GameFinish.myInstance.Lose();
 			Destroy (gameObject);
 		}
 	}

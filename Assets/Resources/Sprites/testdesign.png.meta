@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 317437e340ef2c74dbfeb422ad98c517
-timeCreated: 1426935274
+timeCreated: 1427694041
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -102,8 +102,8 @@ TextureImporter:
         y: 364
         width: 236
         height: 21
-      alignment: 4
-      pivot: {x: 0, y: .5}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: testdesign_7
       rect:
