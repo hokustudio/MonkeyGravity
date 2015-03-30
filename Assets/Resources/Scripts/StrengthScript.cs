@@ -1,25 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StrengthScript : MonoBehaviour {
-	private int maxStrength;
-	private int strength;
+public class StrengthScript : MonoBehaviour
+{
+	private float maxStrength;
+	private float strength;
 	private float x;
 	private float rx;
 	private float y;
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		rx = transform.localScale.x;
 		strength = maxStrength;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		maxStrength = PlayerPhysic.myInstance.GetMaxStrength();
-		strength = PlayerPhysic.myInstance.GetStrength();
+
+	void Update ()
+	{
+		maxStrength = PlayerModels.PlayerInstance.GetMaxStrengthPlayer ()-1;
+		strength = PlayerModels.PlayerInstance.GetStrengthPlayer ()-1;
 		x = rx * strength / maxStrength;
 		y = transform.localScale.y;
-		transform.localScale = new Vector2(x,y);
+		transform.localScale = new Vector2 (x, y);
 	}
 }

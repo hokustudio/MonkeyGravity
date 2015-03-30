@@ -1,27 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FuelScript : MonoBehaviour {
-	private int maxFuel;
-	private int fuel;
+public class FuelScript : MonoBehaviour
+{
+
+	private float maxFuel;
+	private float fuel;
 	private float x;
 	private float rx;
 	private float y;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		rx = transform.localScale.x;
-		//maxFuel = PlayerPhysic.myInstance.getMaxFuel();
 		fuel = maxFuel;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		maxFuel = PlayerPhysic.myInstance.GetMaxFuel();
-		fuel = PlayerPhysic.myInstance.GetFuel();
+	void Update ()
+	{
+		maxFuel = PlayerModels.PlayerInstance.GetMaxFuelPlayer ();
+		fuel = PlayerModels.PlayerInstance.GetFuelPlayer ();
 		x = rx * fuel / maxFuel;
 		y = transform.localScale.y;
-		transform.localScale = new Vector2(x,y);
-		//Debug.Log ("Fuel: "+fuel+" x: "+x);
+		transform.localScale = new Vector2 (x, y);
 	}
 }
