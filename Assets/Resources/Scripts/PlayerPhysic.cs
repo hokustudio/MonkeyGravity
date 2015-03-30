@@ -43,6 +43,7 @@ public class PlayerPhysic : MonoBehaviour
 
 	void Update ()
 	{
+		Debug.Log (thrustMaxSpeed);
 		if (thrustCurrentSpeed > 0) {
 			thrustCurrentSpeed = thrustCurrentSpeed + revThrustMaxSpeed;
 
@@ -78,12 +79,10 @@ public class PlayerPhysic : MonoBehaviour
 				thrustParticleEffect.Play ();
 				PlayerModels.PlayerInstance.SetFuelPlayer (--fuelTank);
 			} else {
-				//thrustParticleEffect.Stop ();
-				FuelPlayerHandler ();
+				thrustParticleEffect.Stop ();
+				//FuelPlayerHandler ();
 			}
-		} else {
-			gameObject.SetActive(false);
-		}
+		} 
 	}
 
 	public void ThrustForceStop ()

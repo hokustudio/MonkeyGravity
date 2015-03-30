@@ -27,19 +27,19 @@ public class GameFinish : MonoBehaviour
 		singleton = this;
 	}
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		if (temp < score) {
 			temp += 300;
 		}
 		text.text = temp.ToString ();
 
-		//if(temp > 25000)
-		//	win.transform.GetChild (3).transform.GetChild (0).gameObject.SetActive (true);
-		//else if(temp > 55000)
-		//	win.transform.GetChild (3).transform.GetChild (1).gameObject.SetActive (true);
-		//else if(temp > 83000)
-		//	win.transform.GetChild (3).transform.GetChild (2).gameObject.SetActive (true);
+		if(temp > 25000)
+			win.transform.GetChild (3).transform.GetChild (0).gameObject.SetActive (true);
+		if(temp > 55000)
+			win.transform.GetChild (3).transform.GetChild (1).gameObject.SetActive (true);
+		if(temp > 83000)
+			win.transform.GetChild (3).transform.GetChild (2).gameObject.SetActive (true);
 
 		timeCounter -= 1 * Time.deltaTime;
 		Debug.Log (temp);
@@ -66,21 +66,21 @@ public class GameFinish : MonoBehaviour
 		//input.SetActive (false);
 		yield return new WaitForSeconds (2.0f);
 		win.transform.position = new Vector3 (0f, 0f, 0f);
-		float score = PlayerModels.PlayerInstance.GetBananaPlayer ();
+		//score = PlayerModels.PlayerInstance.GetBananaPlayer ();
 
 		score = CalculateScore.myInstance.ScorePlayer ();
 		Debug.Log (score);
-		yield return new WaitForSeconds (1.0f);
-		int i = 0;
-		bool p = true;
-		while (p) {
-			win.transform.GetChild (3).transform.GetChild (i).gameObject.SetActive (true);
-			i++;
-			score--;
-			if (score < 1)
-			p = false;
-			yield return new WaitForSeconds (1.0f);
-		}
+		//yield return new WaitForSeconds (1.0f);
+		//int i = 0;
+		//bool p = true;
+		//while (p) {
+		//	win.transform.GetChild (3).transform.GetChild (i).gameObject.SetActive (true);
+		//	i++;
+		//	score--;
+		//	if (score < 1)
+		//	p = false;
+		//	yield return new WaitForSeconds (1.0f);
+		//}
 	}
 
 	public void Lose ()

@@ -24,7 +24,8 @@ public class PlayerModels : MonoBehaviour {
 	}
 	
 	//constructor
-	void Start() {
+	void Awake() {
+		singleton = this;
 		maxSpeedPlayer = 1800;
 		accelerationPlayer = 275;
 		revMaxSpeedPlayer = -200;
@@ -36,7 +37,11 @@ public class PlayerModels : MonoBehaviour {
 		fuelPlayer = maxFuelPlayer;
 		bananaPlayer = 0;
 		orbsPlayer = 0;
-		singleton = this;
+
+	}
+
+	void Update() {
+
 	}
 	
 	public float GetMaxSpeedPlayer() {

@@ -16,6 +16,10 @@ public class CalculateScore : MonoBehaviour {
 		singleton = this;
 	}
 
+	void Update() {
+		ScorePlayer ();
+	}
+
 	public float ScorePlayer()
 	{
 		float maxstrength = PlayerModels.PlayerInstance.GetMaxStrengthPlayer ();
