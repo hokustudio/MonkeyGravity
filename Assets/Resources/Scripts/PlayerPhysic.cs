@@ -43,7 +43,6 @@ public class PlayerPhysic : MonoBehaviour
 
 	void Update ()
 	{
-		Debug.Log (thrustMaxSpeed);
 		if (thrustCurrentSpeed > 0) {
 			thrustCurrentSpeed = thrustCurrentSpeed + revThrustMaxSpeed;
 

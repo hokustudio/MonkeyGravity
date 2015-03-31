@@ -31,7 +31,7 @@ public class CalculateScore : MonoBehaviour {
 
 		float time = GameFinish.myInstance.TimeCounter ();
 		float bonusPercent = 100000*30/100;
-		float bonus = (((time * 10f) + (fuel / (maxfuel/100f)) + (strength / (maxstrength / 100f)) + (banana / (banana / 100f))) / 400) * bonusPercent;
+		float bonus = (((time * 10f) + (fuel / (maxfuel/100f)) + (strength / (maxstrength / 100f)) + (banana / ((banana+1) / 100f))) / 400) * bonusPercent;
 
 		float strengthPercent = 100000*25/100;
 		strength = strength / maxstrength;
